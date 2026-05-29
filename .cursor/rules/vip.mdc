@@ -1,0 +1,17 @@
+---
+description: VIP repository rules
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# VIP Rules
+
+- VIP is a reusable intelligence harness, not Vilo OS.
+- Do not add UI.
+- Do not connect to vendors.
+- Do not hardcode secrets.
+- Keep `packages/vih-core` free of Supabase, OpenAI, Anthropic, Vercel, and product-specific imports.
+- Use injected resolvers for all external behavior.
+- Require human approval before publishing artifacts or learning updates.
+- Tests must use mocked resolvers only.

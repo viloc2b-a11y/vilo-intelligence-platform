@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/vip-types"
+    },
+    {
+      "path": "./packages/vih-core"
+    },
+    {
+      "path": "./packages/vip-packs/clinical"
+    },
+    {
+      "path": "./packages/vip-packs/financial"
+    },
+    {
+      "path": "./packages/vip-packs/navigation"
+    },
+    {
+      "path": "./__tests__"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "../dist/__tests__",
+    "rootDir": ".",
+    "strict": true,
+    "target": "ES2022",
+    "verbatimModuleSyntax": true
+  },
+  "references": [
+    {
+      "path": "../packages/vip-types"
+    },
+    {
+      "path": "../packages/vih-core"
+    }
+  ],
+  "include": [
+    "*.ts"
+  ]
+}
