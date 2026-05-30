@@ -137,12 +137,18 @@ function createArtifactStore(supabase: VIPSupabaseClient): ArtifactStore {
         organization_id: scope.organizationId,
         traceId: scope.traceId
       };
+      
+      const idempotencyKey = typeof artifact.metadata?.idempotencyKey === "string" 
+        ? artifact.metadata.idempotencyKey 
+        : null;
+
       const result = await supabase
         .from("artifacts")
         .insert({
           id: artifact.id,
           tenant_id: scope.tenantId,
           context_id: artifact.contextId,
+          idempotency_key: idempotencyKey,
           artifact_type: artifact.type,
           title: artifact.title,
           body: artifact.body,
@@ -150,9 +156,33 @@ function createArtifactStore(supabase: VIPSupabaseClient): ArtifactStore {
           status: "draft"
         })
         .select("*")
-        .single();
+        .maybeSingle();
 
       if (result.error) {
+        if (result.error.code === "23505" && result.error.message.includes("artifacts_tenant_id_idempotency_key_key")) {
+          let query = supabase.from("artifacts").select("*").eq("tenant_id", scope.tenantId);
+          if (idempotencyKey === null) {
+            query = query.is("idempotency_key", null);
+          } else {
+            query = query.eq("idempotency_key", idempotencyKey);
+          }
+          const existing = await query.single();
+          
+          if (existing.data) {
+            return {
+              id: String(existing.data.id),
+              contextId: String(existing.data.context_id),
+              type: String(existing.data.artifact_type),
+              title: String(existing.data.title),
+              body: String(existing.data.body),
+              status: existing.data.status as Artifact["status"],
+              metadata: isMetadata(existing.data.metadata) ? existing.data.metadata : undefined,
+              createdAt: typeof existing.data.created_at === "string" ? existing.data.created_at : artifact.createdAt,
+              updatedAt: typeof existing.data.updated_at === "string" ? existing.data.updated_at : artifact.updatedAt
+            };
+          }
+        }
+        
         throw new Error(`Could not create VIP draft artifact: ${sanitize(result.error.message)}`);
       }
 

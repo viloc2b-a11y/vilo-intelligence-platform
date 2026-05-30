@@ -22,6 +22,12 @@
     },
     {
       "path": "../packages/vip-service"
+    },
+    {
+      "path": "../lib/vip-adapter"
+    },
+    {
+      "path": "../lib/vilo-os-document-intake"
     }
   ],
   "include": [

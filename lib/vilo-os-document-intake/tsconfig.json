@@ -6,25 +6,21 @@
     "emitDeclarationOnly": false,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "outDir": "dist/scripts",
-    "rootDir": ".",
+    "outDir": "dist",
+    "rootDir": "src",
     "strict": true,
     "target": "ES2022",
     "verbatimModuleSyntax": true
   },
   "references": [
     {
-      "path": "./lib/vip-adapter"
+      "path": "../vip-adapter"
     },
     {
-      "path": "./lib/vilo-os-document-intake"
-    },
-    {
-      "path": "./packages/vip-service"
+      "path": "../../packages/vip-types"
     }
   ],
   "include": [
-    "scripts/**/*.ts",
-    "packages/vip-packs/clinical/seed.ts"
+    "src/**/*.ts"
   ]
 }

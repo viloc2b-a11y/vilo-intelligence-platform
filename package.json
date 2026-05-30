@@ -5,6 +5,7 @@
   "description": "VIP, a provider-agnostic reusable intelligence harness for Vilo products.",
   "type": "module",
   "workspaces": [
+    "lib/*",
     "packages/*",
     "packages/vip-packs/*"
   ],
@@ -13,7 +14,10 @@
     "build": "tsc -b",
     "clean": "tsc -b --clean",
     "health": "tsx scripts/health.ts",
+    "lint": "tsc -b --pretty false",
     "seed:clinical": "tsx packages/vip-packs/clinical/seed.ts",
+    "vip-adapter:smoke:live": "tsx scripts/vip-adapter-smoke-live.ts",
+    "document-intake:vip-draft:smoke": "tsx scripts/document-intake-vip-draft-smoke.ts",
     "smoke:generate-draft": "tsx scripts/smoke-generate-draft.ts",
     "test": "npm run build && node --test dist/__tests__/*.test.js",
     "typecheck": "tsc -b --pretty false"

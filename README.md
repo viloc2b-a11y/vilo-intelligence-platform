@@ -41,6 +41,13 @@ For a local generate-draft smoke check, start the service and run:
 VIP_SMOKE_TENANT_ID=<tenant uuid> npm run smoke:generate-draft
 ```
 
+`lib/vip-adapter` provides the product-facing `generateVipDraft()` HTTP client path. `lib/vilo-os-document-intake` uses that adapter to generate an internal screening visit source draft from copied Document Intelligence and Protocol Vault context. It only requests a draft artifact and saves smoke output under `tmp/`.
+
+```bash
+npm run vip-adapter:smoke:live
+npm run document-intake:vip-draft:smoke
+```
+
 ## Memory
 
 VIP memory is not corpus. It stores contextual facts that may inform generation, such as preferences, decisions, constraints, assumptions, conventions, relationship context, operational context, and compliance context.

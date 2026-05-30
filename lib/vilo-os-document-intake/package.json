@@ -1,0 +1,20 @@
+{
+  "name": "@vilo/vilo-os-document-intake",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@vilo/vip-adapter": "0.1.0",
+    "@vilo/vip-types": "0.1.0"
+  },
+  "scripts": {
+    "build": "tsc -b"
+  }
+}

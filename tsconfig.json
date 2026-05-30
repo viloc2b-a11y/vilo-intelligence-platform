@@ -11,6 +11,12 @@
       "path": "./packages/vip-memory"
     },
     {
+      "path": "./lib/vip-adapter"
+    },
+    {
+      "path": "./lib/vilo-os-document-intake"
+    },
+    {
       "path": "./packages/vip-service"
     },
     {
