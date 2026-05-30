@@ -18,6 +18,9 @@
     },
     {
       "path": "./__tests__"
+    },
+    {
+      "path": "./tsconfig.scripts.json"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist/scripts",
+    "rootDir": ".",
+    "strict": true,
+    "target": "ES2022",
+    "verbatimModuleSyntax": true
+  },
+  "include": [
+    "scripts/**/*.ts",
+    "packages/vip-packs/clinical/seed.ts"
+  ]
+}
