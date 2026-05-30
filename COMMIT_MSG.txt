@@ -1,5 +1,1 @@
-Create initial VIP harness foundation
-
-Scaffold a provider-agnostic TypeScript workspace for the Vilo Intelligence Platform.
-Add shared VIP contracts, resolver-driven core functions, initial domain packs, SQL drafts,
-agent rules, setup notes, and mocked resolver tests.
+feat(vip): add formal memory module

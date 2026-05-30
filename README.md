@@ -8,6 +8,7 @@ VIP is not Vilo OS. It does not include UI, product workflows, database clients,
 
 - `packages/vip-types`: shared types and resolver interfaces.
 - `packages/vih-core`: provider-neutral harness functions.
+- `packages/vip-memory`: formal memory layer for preferences, decisions, constraints, assumptions, conventions, and contextual memory.
 - `packages/vip-packs/clinical`: clinical domain pack metadata and prompt guidance.
 - `packages/vip-packs/financial`: financial domain pack metadata and prompt guidance.
 - `packages/vip-packs/navigation`: navigation domain pack metadata and prompt guidance.
@@ -22,6 +23,12 @@ VIP is not Vilo OS. It does not include UI, product workflows, database clients,
 - `logAudit()`
 
 All functions accept resolver dependencies. No core function imports Supabase, OpenAI, Anthropic, Vercel, or product-specific code.
+
+## Memory
+
+VIP memory is not corpus. It stores contextual facts that may inform generation, such as preferences, decisions, constraints, assumptions, conventions, relationship context, operational context, and compliance context.
+
+Memory does not create procedural patterns and cannot override protocol, safety, compliance, or approved runtime data. All memory changes are auditable through append-only events.
 
 ## Safety Rules
 

@@ -8,6 +8,9 @@
       "path": "./packages/vih-core"
     },
     {
+      "path": "./packages/vip-memory"
+    },
+    {
       "path": "./packages/vip-packs/clinical"
     },
     {

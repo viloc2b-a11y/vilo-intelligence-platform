@@ -2,26 +2,22 @@
   "compilerOptions": {
     "composite": true,
     "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "outDir": "../dist/__tests__",
-    "rootDir": ".",
+    "outDir": "dist",
+    "rootDir": "src",
     "strict": true,
     "target": "ES2022",
     "verbatimModuleSyntax": true
   },
   "references": [
     {
-      "path": "../packages/vip-types"
-    },
-    {
-      "path": "../packages/vih-core"
-    },
-    {
-      "path": "../packages/vip-memory"
+      "path": "../vip-types"
     }
   ],
   "include": [
-    "*.ts"
+    "src/**/*.ts"
   ]
 }

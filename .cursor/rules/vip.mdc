@@ -14,4 +14,7 @@ alwaysApply: true
 - Keep `packages/vih-core` free of Supabase, OpenAI, Anthropic, Vercel, and product-specific imports.
 - Use injected resolvers for all external behavior.
 - Require human approval before publishing artifacts or learning updates.
+- Keep memory separate from corpus; memory is not `corpus_entries`.
+- Memory can inform generation context but cannot override protocol, safety, compliance, or approved runtime data.
+- All memory changes must be auditable.
 - Tests must use mocked resolvers only.

@@ -32,6 +32,9 @@ products
 
 vip-packs
   -> vip-types
+
+vip-memory
+  -> vip-types
 ```
 
 Products inject resolvers into `vih-core`. Resolvers may call databases, LLM providers, notification systems, or publishing targets, but those integrations live outside this core repository until explicitly added by a product.
@@ -43,6 +46,14 @@ Drafts may be generated without approval. Publishing requires an approved artifa
 ## Audit Model
 
 Every meaningful state transition should call `logAudit()`. The core exposes the function, but the storage target is injected. This keeps audit storage portable across products and vendors.
+
+## Memory Model
+
+`packages/vip-memory` is separate from corpus. Corpus represents source material and reusable knowledge entries. Memory represents scoped contextual facts that can inform generation context.
+
+Memory scopes are platform, product, tenant, study, user, relationship, and project. Memory categories include preference, decision, constraint, assumption, convention, relationship context, operational context, and compliance context.
+
+Memory cannot override protocol, safety, compliance, or approved runtime data. Memory does not create procedural patterns. All creates, recalls, updates, and archives are auditable through injected event resolvers and the staged SQL `vip.memory_events` table.
 
 ## SQL Staging
 

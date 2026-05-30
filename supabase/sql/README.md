@@ -7,3 +7,4 @@ Apply manually, in this exact order:
 1. `vip-schema.sql`
 2. `vip-memory.sql`
 3. `vip-hardening.sql`
+4. `vip-memory-module.sql`
