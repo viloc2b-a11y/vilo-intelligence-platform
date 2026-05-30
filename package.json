@@ -9,10 +9,12 @@
     "packages/vip-packs/*"
   ],
   "scripts": {
+    "api": "tsx packages/vip-service/src/server.ts",
     "build": "tsc -b",
     "clean": "tsc -b --clean",
     "health": "tsx scripts/health.ts",
     "seed:clinical": "tsx packages/vip-packs/clinical/seed.ts",
+    "smoke:generate-draft": "tsx scripts/smoke-generate-draft.ts",
     "test": "npm run build && node --test dist/__tests__/*.test.js",
     "typecheck": "tsc -b --pretty false"
   },

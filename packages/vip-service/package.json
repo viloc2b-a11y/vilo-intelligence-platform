@@ -1,0 +1,22 @@
+{
+  "name": "@vilo/vip-service",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.106.2",
+    "@vilo/vih-core": "0.1.0",
+    "@vilo/vip-types": "0.1.0",
+    "dotenv": "^17.4.2"
+  },
+  "scripts": {
+    "build": "tsc -b"
+  }
+}

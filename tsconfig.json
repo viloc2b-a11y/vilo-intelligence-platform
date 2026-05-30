@@ -11,6 +11,9 @@
       "path": "./packages/vip-memory"
     },
     {
+      "path": "./packages/vip-service"
+    },
+    {
       "path": "./packages/vip-packs/clinical"
     },
     {

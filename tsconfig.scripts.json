@@ -12,6 +12,11 @@
     "target": "ES2022",
     "verbatimModuleSyntax": true
   },
+  "references": [
+    {
+      "path": "./packages/vip-service"
+    }
+  ],
   "include": [
     "scripts/**/*.ts",
     "packages/vip-packs/clinical/seed.ts"

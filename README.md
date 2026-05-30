@@ -24,6 +24,23 @@ VIP is not Vilo OS. It does not include UI, product workflows, database clients,
 
 All functions accept resolver dependencies. No core function imports Supabase, OpenAI, Anthropic, Vercel, or product-specific code.
 
+## HTTP Service
+
+`@vilo/vip-service` exposes the core functions through a small Node HTTP server:
+
+- `GET /api/health`
+- `POST /api/read-context`
+- `POST /api/generate-draft`
+- `POST /api/capture-feedback`
+
+Run it with `npm run api`. Requests must include `Authorization: Bearer <VIP_API_KEY>` and a request `tenant_id`; `organization_id` is accepted as service metadata. The service uses `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` only in its resolver layer. Draft generation reads VIP corpus context and writes a draft artifact, but does not publish artifacts or modify corpus.
+
+For a local generate-draft smoke check, start the service and run:
+
+```bash
+VIP_SMOKE_TENANT_ID=<tenant uuid> npm run smoke:generate-draft
+```
+
 ## Memory
 
 VIP memory is not corpus. It stores contextual facts that may inform generation, such as preferences, decisions, constraints, assumptions, conventions, relationship context, operational context, and compliance context.

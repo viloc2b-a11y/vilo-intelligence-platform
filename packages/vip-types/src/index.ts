@@ -106,6 +106,42 @@ export interface ReadContextInput {
   metadata?: VIPMetadata;
 }
 
+export interface VIPApiTenantScope {
+  tenant_id: string;
+  organization_id?: string;
+  traceId?: string;
+}
+
+export interface ReadContextApiRequest extends VIPApiTenantScope, ReadContextInput {}
+
+export interface GenerateDraftApiRequest extends VIPApiTenantScope {
+  subject: string;
+  artifactType: string;
+  instructions?: string;
+  actor?: VIPActor;
+  productSurface?: string;
+  metadata?: VIPMetadata;
+}
+
+export interface CaptureFeedbackApiRequest extends VIPApiTenantScope {
+  artifactId?: string;
+  contextId?: string;
+  body: string;
+  category?: string;
+  createsLearningUpdate?: boolean;
+  approvedForLearning?: boolean;
+  actor?: VIPActor;
+}
+
+export interface VIPApiErrorBody {
+  traceId: string;
+  error: {
+    code: string;
+    message: string;
+    details?: VIPMetadata;
+  };
+}
+
 export interface ContextResolver {
   read(input: ReadContextInput): Promise<Omit<VIPContext, "id" | "createdAt">>;
 }
